@@ -120,6 +120,7 @@ export default {
           // アップロードが完了したら、snapshot.ref.getDownloadURL()で画像のURLを取得
           snapshot.ref.getDownloadURL().then(downloadURL => {
             this.imageUrl = downloadURL;
+            // DBに画像パスを保存
             firestore
               .collection("users")
               .doc(this.$store.getters.user.uid)
