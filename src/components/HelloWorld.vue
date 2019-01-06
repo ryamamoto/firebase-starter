@@ -34,6 +34,7 @@
 <script>
 export default {
   name: 'HelloWorld',
+  /** 親コンポーネントから受け取るデータ */
   props: {
     msg: String
   }

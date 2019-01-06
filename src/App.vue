@@ -1,12 +1,38 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!--
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      -->
+
+      <!-- 子コンポーネントに、itemsキーで値を渡す -->
+      <global-navi :items="globalNaviItems" />
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import GlobalNavi from '@/components/GlobalNavi.vue'
+
+export default {
+  /** コンポーネントに属するデータ(状態) */
+  data() {
+    return {
+      /** 子コンポーネントに渡す値を定義 */
+      globalNaviItems: [
+        { name: 'Home', to: '/' },
+        { name: 'About', to: '/about' },
+      ]
+    }
+  },
+  /** Templateで利用するコンポーネント */
+  components: {
+    GlobalNavi: GlobalNavi
+  }
+}
+</script>
 
 <style>
 #app {
